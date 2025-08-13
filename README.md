@@ -54,3 +54,16 @@ If you get the error `ModuleNotFoundError: No module named 'serial'`, then insta
 ```
 sudo apt install python3-pyserial
 ```
+
+For a complete Micropython IDE, you can install Thonny:
+
+```
+sudo apt install pipx
+pix install thonny
+```
+
+and then simply launch it as
+
+```
+thonny
+```
