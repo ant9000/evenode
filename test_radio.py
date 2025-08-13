@@ -18,8 +18,9 @@ lora.begin()
 lora.configure(868300000, 125000, 5, 7, 14)
 lora.receive()
 lora.show_status()
-payload=b'Hello from Apollo3!'
+payload=bytearray(b'Hello from Apollo3!')
 while True:
-    lora.send(bytearray(payload))
+    lora.send(payload)
     lora.receive()
+    print(".", end="")
     time.sleep(5)
