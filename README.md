@@ -59,7 +59,7 @@ For a complete Micropython IDE, you can install Thonny:
 
 ```
 sudo apt install pipx
-pix install thonny
+pipx install thonny
 ```
 
 and then simply launch it as
