@@ -1,3 +1,10 @@
+Clone this repo first:
+
+```
+git clone https://github.com/ant9000/evernode
+cd evernode
+```
+
 Define `BASE` as current dir and `DEVICE` as the correct serial port:
 
 ```
