@@ -1,4 +1,6 @@
 from sx1262 import *
+import time
+
 pinset = {
         'busy':       ("gpio0_31", 16),
         'reset':      ("gpio0_31", 17),
@@ -17,5 +19,7 @@ lora.configure(868300000, 125000, 5, 7, 14)
 lora.receive()
 lora.show_status()
 payload=b'Hello from Apollo3!'
-lora.send(bytearray(payload))
-lora.show_status()
+while True:
+    lora.send(bytearray(payload))
+    lora.receive()
+    time.sleep(5)
