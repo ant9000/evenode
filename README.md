@@ -48,3 +48,9 @@ To launch the radio test script on the Evernode:
 ```
 $BASE/micropython/tools/pyboard.py --device $DEVICE $BASE/test_radio.py
 ```
+
+If you get the error `ModuleNotFoundError: No module named 'serial'`, then install pyserial with
+
+```
+sudo apt install python3-pyserial
+```
