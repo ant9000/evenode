@@ -19,6 +19,16 @@
     };
 };
 
+&iom1 {
+	spi1: spi {
+		pinctrl-0 = <&spi1_default>;
+		pinctrl-names = "default";
+		cs-gpios = <&gpio0_31 11 GPIO_ACTIVE_LOW>;
+		clock-frequency = <DT_FREQ_M(10)>;
+		status = "ok";
+	};
+};
+
 &i2c3 {
     status = "okay";
 };
