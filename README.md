@@ -29,7 +29,8 @@ west build -b apollo3_evb \
    $BASE/micropython/ports/zephyr/ \
    -DEXTRA_CONF_FILE=thread.conf \
    -DEXTRA_CONF_FILE=$BASE/evernode.conf \
-   -DEXTRA_DTC_OVERLAY_FILE=$BASE/evernode.overlay
+   -DEXTRA_DTC_OVERLAY_FILE=$BASE/evernode.overlay \
+   -DEXTRA_CFLAGS=-DMICROPY_CONFIG_ROM_LEVEL=MICROPY_CONFIG_ROM_LEVEL_EXTRA_FEATURES
 ```
 
 For further work, just move to the build directory:
