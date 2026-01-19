@@ -1,0 +1,22 @@
+#!/bin/bash
+
+cd $(dirname $0)
+BASE=`pwd`
+TARGET=${BASE}/build
+
+which west || {
+  echo "West command not found - please activate Zephyr environment"
+  exit 1
+}
+
+cd $(dirname $(which west))
+cd $(west topdir)
+
+west build -b apollo3_evb \
+    -d $TARGET \
+    $BASE/micropython/ports/zephyr/ \
+    -DEXTRA_CONF_FILE=thread.conf \
+    -DEXTRA_CONF_FILE=$BASE/evernode.conf \
+    -DEXTRA_DTC_OVERLAY_FILE=$BASE/evernode.overlay \
+    -DEXTRA_CFLAGS=-DMICROPY_CONFIG_ROM_LEVEL=MICROPY_CONFIG_ROM_LEVEL_EXTRA_FEATURES \
+    $*

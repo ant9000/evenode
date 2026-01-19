@@ -12,26 +12,19 @@ BASE=`pwd`
 DEVICE=/dev/ttyUSB0
 ```
 
-Clone my Micropython repo and switch to `evernode` branch:
+Clone Micropython repo:
 
 ```
-git clone https://github.com/ant9000/micropython
-cd micropython
-git checkout evernode
+git clone https://github.com/micropython/micropython
 ```
 
-Move to Zephyr installation and compile:
+Activate Zephyr environment and compile:
 
 ```
-cd ~/zephyrproject/zephyr
-west build -b apollo3_evb \
-   -d ~/zephyrproject/evernode-micropython/ \
-   $BASE/micropython/ports/zephyr/ \
-   -DEXTRA_CONF_FILE=thread.conf \
-   -DEXTRA_CONF_FILE=$BASE/evernode.conf \
-   -DEXTRA_DTC_OVERLAY_FILE=$BASE/evernode.overlay \
-   -DEXTRA_CFLAGS=-DMICROPY_CONFIG_ROM_LEVEL=MICROPY_CONFIG_ROM_LEVEL_EXTRA_FEATURES
+source ~/zephyrproject/.venv/bin/activate
+./build.sh
 ```
+
 
 For further work, just move to the build directory:
 
